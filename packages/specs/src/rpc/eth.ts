@@ -1,0 +1,637 @@
+export const eth = {
+  accounts: {
+    docs: 'Returns accounts list.',
+    params: [],
+    type: 'Array<H160>',
+    isSubscription: false,
+    jsonrpc: 'eth_accounts',
+    method: 'accounts',
+    section: 'eth',
+  },
+  blockNumber: {
+    docs: 'Returns the blockNumber',
+    params: [],
+    type: 'U256',
+    isSubscription: false,
+    jsonrpc: 'eth_blockNumber',
+    method: 'blockNumber',
+    section: 'eth',
+  },
+  call: {
+    docs: 'Call contract, returning the output data.',
+    params: [
+      {
+        name: 'request',
+        type: 'EthCallRequest',
+      },
+      {
+        isHistoric: true,
+        isOptional: true,
+        name: 'number',
+        type: 'BlockNumber',
+      },
+    ],
+    type: 'Bytes',
+    isSubscription: false,
+    jsonrpc: 'eth_call',
+    method: 'call',
+    section: 'eth',
+  },
+  chainId: {
+    docs: 'Returns the chain ID used for transaction signing at the current best block. None is returned if not available.',
+    params: [],
+    type: 'U64',
+    isSubscription: false,
+    jsonrpc: 'eth_chainId',
+    method: 'chainId',
+    section: 'eth',
+  },
+  coinbase: {
+    docs: 'Returns block author.',
+    params: [],
+    type: 'H160',
+    isSubscription: false,
+    jsonrpc: 'eth_coinbase',
+    method: 'coinbase',
+    section: 'eth',
+  },
+  estimateGas: {
+    docs: 'Estimate gas needed for execution of given contract.',
+    params: [
+      {
+        name: 'request',
+        type: 'EthCallRequest',
+      },
+      {
+        isHistoric: true,
+        isOptional: true,
+        name: 'number',
+        type: 'BlockNumber',
+      },
+    ],
+    type: 'U256',
+    isSubscription: false,
+    jsonrpc: 'eth_estimateGas',
+    method: 'estimateGas',
+    section: 'eth',
+  },
+  feeHistory: {
+    docs: 'Returns fee history for given block count & reward percentiles',
+    params: [
+      {
+        name: 'blockCount',
+        type: 'U256',
+      },
+      {
+        name: 'newestBlock',
+        type: 'BlockNumber',
+      },
+      {
+        name: 'rewardPercentiles',
+        type: 'Option<Array<f64>>',
+      },
+    ],
+    type: 'EthFeeHistory',
+    isSubscription: false,
+    jsonrpc: 'eth_feeHistory',
+    method: 'feeHistory',
+    section: 'eth',
+  },
+  gasPrice: {
+    docs: 'Returns current gas price.',
+    params: [],
+    type: 'U256',
+    isSubscription: false,
+    jsonrpc: 'eth_gasPrice',
+    method: 'gasPrice',
+    section: 'eth',
+  },
+  getBalance: {
+    docs: 'Returns balance of the given account.',
+    params: [
+      {
+        name: 'address',
+        type: 'H160',
+      },
+      {
+        isHistoric: true,
+        isOptional: true,
+        name: 'number',
+        type: 'BlockNumber',
+      },
+    ],
+    type: 'U256',
+    isSubscription: false,
+    jsonrpc: 'eth_getBalance',
+    method: 'getBalance',
+    section: 'eth',
+  },
+  getBlockByHash: {
+    docs: 'Returns block with given hash.',
+    params: [
+      {
+        name: 'hash',
+        type: 'H256',
+      },
+      {
+        name: 'full',
+        type: 'boolean',
+      },
+    ],
+    type: 'Option<EthRichBlock>',
+    isSubscription: false,
+    jsonrpc: 'eth_getBlockByHash',
+    method: 'getBlockByHash',
+    section: 'eth',
+  },
+  getBlockByNumber: {
+    docs: 'Returns block with given number.',
+    params: [
+      {
+        name: 'block',
+        type: 'BlockNumber',
+      },
+      {
+        name: 'full',
+        type: 'boolean',
+      },
+    ],
+    type: 'Option<EthRichBlock>',
+    isSubscription: false,
+    jsonrpc: 'eth_getBlockByNumber',
+    method: 'getBlockByNumber',
+    section: 'eth',
+  },
+  getBlockTransactionCountByHash: {
+    docs: 'Returns the number of transactions in a block with given hash.',
+    params: [
+      {
+        name: 'hash',
+        type: 'H256',
+      },
+    ],
+    type: 'U256',
+    isSubscription: false,
+    jsonrpc: 'eth_getBlockTransactionCountByHash',
+    method: 'getBlockTransactionCountByHash',
+    section: 'eth',
+  },
+  getBlockTransactionCountByNumber: {
+    docs: 'Returns the number of transactions in a block with given block number.',
+    params: [
+      {
+        name: 'block',
+        type: 'BlockNumber',
+      },
+    ],
+    type: 'U256',
+    isSubscription: false,
+    jsonrpc: 'eth_getBlockTransactionCountByNumber',
+    method: 'getBlockTransactionCountByNumber',
+    section: 'eth',
+  },
+  getCode: {
+    docs: 'Returns the code at given address at given time (block number).',
+    params: [
+      {
+        name: 'address',
+        type: 'H160',
+      },
+      {
+        isHistoric: true,
+        isOptional: true,
+        name: 'number',
+        type: 'BlockNumber',
+      },
+    ],
+    type: 'Bytes',
+    isSubscription: false,
+    jsonrpc: 'eth_getCode',
+    method: 'getCode',
+    section: 'eth',
+  },
+  getFilterChanges: {
+    docs: 'Returns filter changes since last poll.',
+    params: [
+      {
+        name: 'index',
+        type: 'U256',
+      },
+    ],
+    type: 'EthFilterChanges',
+    isSubscription: false,
+    jsonrpc: 'eth_getFilterChanges',
+    method: 'getFilterChanges',
+    section: 'eth',
+  },
+  getFilterLogs: {
+    docs: "Returns all logs matching given filter (in a range 'from' - 'to').",
+    params: [
+      {
+        name: 'index',
+        type: 'U256',
+      },
+    ],
+    type: 'Array<EthLog>',
+    isSubscription: false,
+    jsonrpc: 'eth_getFilterLogs',
+    method: 'getFilterLogs',
+    section: 'eth',
+  },
+  getLogs: {
+    docs: 'Returns logs matching given filter object.',
+    params: [
+      {
+        name: 'filter',
+        type: 'EthFilter',
+      },
+    ],
+    type: 'Array<EthLog>',
+    isSubscription: false,
+    jsonrpc: 'eth_getLogs',
+    method: 'getLogs',
+    section: 'eth',
+  },
+  getProof: {
+    docs: 'Returns proof for account and storage.',
+    params: [
+      {
+        name: 'address',
+        type: 'H160',
+      },
+      {
+        name: 'storageKeys',
+        type: 'Array<H256>',
+      },
+      {
+        name: 'number',
+        type: 'BlockNumber',
+      },
+    ],
+    type: 'EthAccount',
+    isSubscription: false,
+    jsonrpc: 'eth_getProof',
+    method: 'getProof',
+    section: 'eth',
+  },
+  getStorageAt: {
+    docs: 'Returns content of the storage at given address.',
+    params: [
+      {
+        name: 'address',
+        type: 'H160',
+      },
+      {
+        name: 'index',
+        type: 'U256',
+      },
+      {
+        isHistoric: true,
+        isOptional: true,
+        name: 'number',
+        type: 'BlockNumber',
+      },
+    ],
+    type: 'H256',
+    isSubscription: false,
+    jsonrpc: 'eth_getStorageAt',
+    method: 'getStorageAt',
+    section: 'eth',
+  },
+  getTransactionByBlockHashAndIndex: {
+    docs: 'Returns transaction at given block hash and index.',
+    params: [
+      {
+        name: 'hash',
+        type: 'H256',
+      },
+      {
+        name: 'index',
+        type: 'U256',
+      },
+    ],
+    type: 'EthTransaction',
+    isSubscription: false,
+    jsonrpc: 'eth_getTransactionByBlockHashAndIndex',
+    method: 'getTransactionByBlockHashAndIndex',
+    section: 'eth',
+  },
+  getTransactionByBlockNumberAndIndex: {
+    docs: 'Returns transaction by given block number and index.',
+    params: [
+      {
+        name: 'number',
+        type: 'BlockNumber',
+      },
+      {
+        name: 'index',
+        type: 'U256',
+      },
+    ],
+    type: 'EthTransaction',
+    isSubscription: false,
+    jsonrpc: 'eth_getTransactionByBlockNumberAndIndex',
+    method: 'getTransactionByBlockNumberAndIndex',
+    section: 'eth',
+  },
+  getTransactionByHash: {
+    docs: 'Get transaction by its hash.',
+    params: [
+      {
+        name: 'hash',
+        type: 'H256',
+      },
+    ],
+    type: 'EthTransaction',
+    isSubscription: false,
+    jsonrpc: 'eth_getTransactionByHash',
+    method: 'getTransactionByHash',
+    section: 'eth',
+  },
+  getTransactionCount: {
+    docs: 'Returns the number of transactions sent from given address at given time (block number).',
+    params: [
+      {
+        name: 'address',
+        type: 'H160',
+      },
+      {
+        isHistoric: true,
+        isOptional: true,
+        name: 'number',
+        type: 'BlockNumber',
+      },
+    ],
+    type: 'U256',
+    isSubscription: false,
+    jsonrpc: 'eth_getTransactionCount',
+    method: 'getTransactionCount',
+    section: 'eth',
+  },
+  getTransactionReceipt: {
+    docs: 'Returns transaction receipt by transaction hash.',
+    params: [
+      {
+        name: 'hash',
+        type: 'H256',
+      },
+    ],
+    type: 'EthReceipt',
+    isSubscription: false,
+    jsonrpc: 'eth_getTransactionReceipt',
+    method: 'getTransactionReceipt',
+    section: 'eth',
+  },
+  getUncleByBlockHashAndIndex: {
+    docs: 'Returns an uncles at given block and index.',
+    params: [
+      {
+        name: 'hash',
+        type: 'H256',
+      },
+      {
+        name: 'index',
+        type: 'U256',
+      },
+    ],
+    type: 'EthRichBlock',
+    isSubscription: false,
+    jsonrpc: 'eth_getUncleByBlockHashAndIndex',
+    method: 'getUncleByBlockHashAndIndex',
+    section: 'eth',
+  },
+  getUncleByBlockNumberAndIndex: {
+    docs: 'Returns an uncles at given block and index.',
+    params: [
+      {
+        name: 'number',
+        type: 'BlockNumber',
+      },
+      {
+        name: 'index',
+        type: 'U256',
+      },
+    ],
+    type: 'EthRichBlock',
+    isSubscription: false,
+    jsonrpc: 'eth_getUncleByBlockNumberAndIndex',
+    method: 'getUncleByBlockNumberAndIndex',
+    section: 'eth',
+  },
+  getUncleCountByBlockHash: {
+    docs: 'Returns the number of uncles in a block with given hash.',
+    params: [
+      {
+        name: 'hash',
+        type: 'H256',
+      },
+    ],
+    type: 'U256',
+    isSubscription: false,
+    jsonrpc: 'eth_getUncleCountByBlockHash',
+    method: 'getUncleCountByBlockHash',
+    section: 'eth',
+  },
+  getUncleCountByBlockNumber: {
+    docs: 'Returns the number of uncles in a block with given block number.',
+    params: [
+      {
+        name: 'number',
+        type: 'BlockNumber',
+      },
+    ],
+    type: 'U256',
+    isSubscription: false,
+    jsonrpc: 'eth_getUncleCountByBlockNumber',
+    method: 'getUncleCountByBlockNumber',
+    section: 'eth',
+  },
+  getWork: {
+    docs: 'Returns the hash of the current block, the seedHash, and the boundary condition to be met.',
+    params: [],
+    type: 'EthWork',
+    isSubscription: false,
+    jsonrpc: 'eth_getWork',
+    method: 'getWork',
+    section: 'eth',
+  },
+  hashrate: {
+    docs: 'Returns the number of hashes per second that the node is mining with.',
+    params: [],
+    type: 'U256',
+    isSubscription: false,
+    jsonrpc: 'eth_hashrate',
+    method: 'hashrate',
+    section: 'eth',
+  },
+  maxPriorityFeePerGas: {
+    docs: 'Returns max priority fee per gas',
+    params: [],
+    type: 'U256',
+    isSubscription: false,
+    jsonrpc: 'eth_maxPriorityFeePerGas',
+    method: 'maxPriorityFeePerGas',
+    section: 'eth',
+  },
+  mining: {
+    docs: 'Returns true if client is actively mining new blocks.',
+    params: [],
+    type: 'boolean',
+    isSubscription: false,
+    jsonrpc: 'eth_mining',
+    method: 'mining',
+    section: 'eth',
+  },
+  newBlockFilter: {
+    docs: 'Returns id of new block filter.',
+    params: [],
+    type: 'U256',
+    isSubscription: false,
+    jsonrpc: 'eth_newBlockFilter',
+    method: 'newBlockFilter',
+    section: 'eth',
+  },
+  newFilter: {
+    docs: 'Returns id of new filter.',
+    params: [
+      {
+        name: 'filter',
+        type: 'EthFilter',
+      },
+    ],
+    type: 'U256',
+    isSubscription: false,
+    jsonrpc: 'eth_newFilter',
+    method: 'newFilter',
+    section: 'eth',
+  },
+  newPendingTransactionFilter: {
+    docs: 'Returns id of new block filter.',
+    params: [],
+    type: 'U256',
+    isSubscription: false,
+    jsonrpc: 'eth_newPendingTransactionFilter',
+    method: 'newPendingTransactionFilter',
+    section: 'eth',
+  },
+  protocolVersion: {
+    docs: 'Returns protocol version encoded as a string (quotes are necessary).',
+    params: [],
+    type: 'u64',
+    isSubscription: false,
+    jsonrpc: 'eth_protocolVersion',
+    method: 'protocolVersion',
+    section: 'eth',
+  },
+  sendRawTransaction: {
+    docs: 'Sends signed transaction, returning its hash.',
+    params: [
+      {
+        name: 'bytes',
+        type: 'Bytes',
+      },
+    ],
+    type: 'H256',
+    isSubscription: false,
+    jsonrpc: 'eth_sendRawTransaction',
+    method: 'sendRawTransaction',
+    section: 'eth',
+  },
+  sendTransaction: {
+    docs: 'Sends transaction; will block waiting for signer to return the transaction hash',
+    params: [
+      {
+        name: 'tx',
+        type: 'EthTransactionRequest',
+      },
+    ],
+    type: 'H256',
+    isSubscription: false,
+    jsonrpc: 'eth_sendTransaction',
+    method: 'sendTransaction',
+    section: 'eth',
+  },
+  submitHashrate: {
+    docs: 'Used for submitting mining hashrate.',
+    params: [
+      {
+        name: 'index',
+        type: 'U256',
+      },
+      {
+        name: 'hash',
+        type: 'H256',
+      },
+    ],
+    type: 'boolean',
+    isSubscription: false,
+    jsonrpc: 'eth_submitHashrate',
+    method: 'submitHashrate',
+    section: 'eth',
+  },
+  submitWork: {
+    docs: 'Used for submitting a proof-of-work solution.',
+    params: [
+      {
+        name: 'nonce',
+        type: 'H64',
+      },
+      {
+        name: 'headerHash',
+        type: 'H256',
+      },
+      {
+        name: 'mixDigest',
+        type: 'H256',
+      },
+    ],
+    type: 'boolean',
+    isSubscription: false,
+    jsonrpc: 'eth_submitWork',
+    method: 'submitWork',
+    section: 'eth',
+  },
+  subscribe: {
+    docs: 'Subscribe to Eth subscription.',
+    params: [
+      {
+        name: 'kind',
+        type: 'EthSubKind',
+      },
+      {
+        isOptional: true,
+        name: 'params',
+        type: 'EthSubParams',
+      },
+    ],
+    pubsub: ['subscription', 'subscribe', 'unsubscribe'],
+    type: 'Null',
+    isSubscription: true,
+    jsonrpc: 'eth_subscribe',
+    method: 'subscribe',
+    section: 'eth',
+  },
+  syncing: {
+    docs: 'Returns an object with data about the sync status or false.',
+    params: [],
+    type: 'EthSyncStatus',
+    isSubscription: false,
+    jsonrpc: 'eth_syncing',
+    method: 'syncing',
+    section: 'eth',
+  },
+  uninstallFilter: {
+    docs: 'Uninstalls filter.',
+    params: [
+      {
+        name: 'index',
+        type: 'U256',
+      },
+    ],
+    type: 'boolean',
+    isSubscription: false,
+    jsonrpc: 'eth_uninstallFilter',
+    method: 'uninstallFilter',
+    section: 'eth',
+  },
+};

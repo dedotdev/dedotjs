@@ -1,0 +1,24 @@
+{
+  "parentHash": "0xbb4eb596a79ad0b3d1fbace36b96731e1540ff3389af050e92771881d7169700",
+  "number": 17818719,
+  "stateRoot": "0x04e3402b2c15fe741c36c469ba70133456aa48257e7f136ac03ab2700ff69fd3",
+  "extrinsicsRoot": "0xb0912d00c1c1f1fd322d0a364139b7661cddc85e7a7938b847608689322922c0",
+  "digest": {
+    "logs": [
+      {
+        "tag": "PreRuntime",
+        "value": [
+          "BABE",
+          "0x0305000000bff4dd100000000022c2565538dad4d40757096ce26a51f28272e02011aac28d08b6ac9df4a66d1d2609b3e0dec041ead8e97f9eaaae451da72f6d5813c8f4d9af94fcdce9125d01755e3c53e5b9f031e929e961bccddcd6a0f03c3eff46519e56397517fedd480e"
+        ]
+      },
+      {
+        "tag": "Seal",
+        "value": [
+          "BABE",
+          "0x0c754c0c09fdd303801c4a56b839bb7ffaed9b72983d6723d45f15467f477c6b8e6e758a2ff15f68d9a14151b2f336e69465044986c9c2779c7728a763215783"
+        ]
+      }
+    ]
+  }
+}

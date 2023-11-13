@@ -1,0 +1,32 @@
+export const net = {
+  listening: {
+    aliasSection: 'net',
+    docs: 'Returns true if client is actively listening for network connections. Otherwise false.',
+    params: [],
+    type: 'boolean',
+    isSubscription: false,
+    jsonrpc: 'net_listening',
+    method: 'listening',
+    section: 'net',
+  },
+  peerCount: {
+    aliasSection: 'net',
+    docs: 'Returns number of peers connected to node.',
+    params: [],
+    type: 'string',
+    isSubscription: false,
+    jsonrpc: 'net_peerCount',
+    method: 'peerCount',
+    section: 'net',
+  },
+  version: {
+    aliasSection: 'net',
+    docs: 'Returns protocol version.',
+    params: [],
+    type: 'string',
+    isSubscription: false,
+    jsonrpc: 'net_version',
+    method: 'version',
+    section: 'net',
+  },
+};

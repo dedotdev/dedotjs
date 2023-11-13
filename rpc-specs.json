@@ -1,0 +1,250 @@
+[
+  {
+    "docs": "Get the node's implementation name. Plain old string.",
+    "params": [],
+    "type": "string",
+    "module": "system",
+    "method": "name"
+  },
+  {
+    "docs": "Get the node implementation's version. Should be a semver string.",
+    "params": [],
+    "type": "string",
+    "module": "system",
+    "method": "version"
+  },
+  {
+    "docs": "Get the chain's name. Given as a string identifier.",
+    "params": [],
+    "type": "string",
+    "module": "system",
+    "method": "chain"
+  },
+  {
+    "docs": "Get the chain's type.",
+    "params": [],
+    "type": "ChainType",
+    "module": "system",
+    "method": "chainType"
+  },
+  {
+    "docs": "Get a custom set of properties as a JSON object, defined in the chain spec.",
+    "params": [],
+    "type": "ChainProperties",
+    "module": "system",
+    "method": "properties"
+  },
+  {
+    "docs": [
+      "Return health status of the node.\n",
+      "\t\n",
+      "\t Node is considered healthy if it is:\n",
+      "\t - connected to some peers (unless running in dev mode)\n",
+      "\t - not performing a major sync"
+    ],
+    "params": [],
+    "type": "Health",
+    "module": "system",
+    "method": "health"
+  },
+  {
+    "docs": "Returns the base58-encoded PeerId of the node.",
+    "params": [],
+    "type": "string",
+    "module": "system",
+    "method": "localPeerId"
+  },
+  {
+    "docs": [
+      "Returns the multi-addresses that the local node is listening on\n",
+      "\t\n",
+      "\t The addresses include a trailing `/p2p/` with the local PeerId, and are thus suitable to\n",
+      "\t be passed to `addReservedPeer` or as a bootnode address for example."
+    ],
+    "params": [],
+    "type": "Array<string>",
+    "module": "system",
+    "method": "localListenAddresses"
+  },
+  {
+    "docs": "Returns the currently connected peers",
+    "isUnsafe": true,
+    "params": [],
+    "type": "Array<PeerInfo>",
+    "module": "system",
+    "method": "peers"
+  },
+  {
+    "docs": [
+      "Returns current state of the network.\n",
+      "\t\n",
+      "\t **Warning**: This API is not stable. Please do not programmatically interpret its output,\n",
+      "\t as its format might change at any time.\n"
+    ],
+    "isUnsafe": true,
+    "params": [],
+    "type": "NetworkState",
+    "module": "system",
+    "method": "unstable_networkState"
+  },
+  {
+    "docs": [
+      "Adds a reserved peer. Returns the empty string or an error. The string\n",
+      "\t parameter should encode a `p2p` multiaddr.\n",
+      "\t\n",
+      "\t `/ip4/198.51.100.19/tcp/30333/p2p/QmSk5HQbn6LhUwDiNMseVUjuRYhEtYj4aUZ6WfWoGURpdV`\n",
+      "\t is an example of a valid, passing multiaddr with PeerId attached."
+    ],
+    "isUnsafe": true,
+    "params": [
+      {
+        "name": "peer",
+        "type": "string"
+      }
+    ],
+    "type": "void",
+    "module": "system",
+    "method": "addReservedPeer"
+  },
+  {
+    "docs": [
+      "Remove a reserved peer. Returns the empty string or an error. The string\n",
+      "\tshould encode only the PeerId e.g. `QmSk5HQbn6LhUwDiNMseVUjuRYhEtYj4aUZ6WfWoGURpdV`."
+    ],
+    "isUnsafe": true,
+    "params": [
+      {
+        "name": "peerId",
+        "type": "string"
+      }
+    ],
+    "type": "void",
+    "module": "system",
+    "method": "removeReservedPeer"
+  },
+  {
+    "docs": "Returns the list of reserved peers",
+    "params": [],
+    "type": "Array<string>",
+    "module": "system",
+    "method": "reservedPeers"
+  },
+  {
+    "docs": "Returns the roles the node is running as",
+    "params": [],
+    "type": "Array<NodeRole>",
+    "module": "system",
+    "method": "nodeRoles"
+  },
+  {
+    "docs": "Returns the state of the syncing of the node: starting block, current best block, highest known block.",
+    "params": [],
+    "type": "SyncState",
+    "module": "system",
+    "method": "syncState"
+  },
+  {
+    "docs": [
+      "Adds the supplied directives to the current log filter\n",
+      "\t\n",
+      "\tThe syntax is identical to the CLI `<target>=<level>`:\n",
+      "\t\n",
+      "\t`sync=debug,state=trace`"
+    ],
+    "isUnsafe": true,
+    "params": [
+      {
+        "name": "directives",
+        "type": "string"
+      }
+    ],
+    "type": "void",
+    "module": "system",
+    "method": "addLogFilter"
+  },
+  {
+    "docs": "Resets the log filter to Substrate defaults",
+    "isUnsafe": true,
+    "params": [],
+    "type": "void",
+    "module": "system",
+    "method": "resetLogFilter"
+  },
+  {
+    "docs": [
+      "Returns the next valid index (aka nonce) for given account.\n",
+      "\t\n",
+      "\tThis method takes into consideration all pending transactions\n",
+      "\tcurrently in the pool and if no transactions are found in the pool\n",
+      "\tit fallbacks to query the index from the runtime (aka. state nonce)."
+    ],
+    "params": [
+      {
+        "name": "accountId",
+        "type": "AccountId"
+      }
+    ],
+    "type": "number",
+    "alias": [
+      "account_nextIndex"
+    ],
+    "module": "system",
+    "method": "accountNextIndex"
+  },
+  {
+    "docs": "Dry run an extrinsic at a given block. Return SCALE encoded ApplyExtrinsicResult.",
+    "isUnsafe": true,
+    "params": [
+      {
+        "name": "extrinsic",
+        "type": "Bytes"
+      },
+      {
+        "isOptional": true,
+        "name": "at",
+        "type": "BlockHash"
+      }
+    ],
+    "type": "Bytes",
+    "isScale": false,
+    "alias": [
+      "system_dryRunAt"
+    ],
+    "module": "system",
+    "method": "dryRun"
+  },
+  {
+    "docs": "Returns the runtime metadata",
+    "params": [
+      {
+        "isOptional": true,
+        "name": "at",
+        "type": "BlockHash"
+      }
+    ],
+    "type": "Metadata",
+    "isScale": true,
+    "module": "state",
+    "method": "getMetadata"
+  },
+  {
+    "docs": "Retrieves the list of RPC methods that are exposed by the node",
+    "params": [],
+    "type": "RpcMethods",
+    "module": "rpc",
+    "method": "methods"
+  },
+  {
+    "name": "sync_state_genSyncSpec",
+    "docs": "Returns the JSON-serialized chainspec running the node, with a sync state.",
+    "params": [
+      {
+        "name": "raw",
+        "type": "boolean"
+      }
+    ],
+    "type": "Record<string,unknown>",
+    "module": "syncstate",
+    "method": "genSyncSpec"
+  }
+]
