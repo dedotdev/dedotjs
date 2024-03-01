@@ -22,7 +22,8 @@
     "directory": "dist"
   },
   "dependencies": {
-    "@polkadot/util": "^12.6.2"
+    "@polkadot/util": "^12.6.2",
+    "@polkadot/util-crypto": "^12.6.2"
   },
   "license": "Apache-2.0"
 }

@@ -16,7 +16,6 @@
     "@dedot/shape": "workspace:*",
     "@dedot/utils": "workspace:*",
     "@polkadot/util": "^12.6.2",
-    "@polkadot/util-crypto": "^12.6.2",
     "lodash.clonedeep": "^4.5.0"
   },
   "scripts": {

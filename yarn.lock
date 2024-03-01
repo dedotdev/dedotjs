@@ -376,7 +376,6 @@ __metadata:
     "@dedot/shape": "workspace:*"
     "@dedot/utils": "workspace:*"
     "@polkadot/util": ^12.6.2
-    "@polkadot/util-crypto": ^12.6.2
     lodash.clonedeep: ^4.5.0
   languageName: unknown
   linkType: soft
@@ -402,7 +401,6 @@ __metadata:
   dependencies:
     "@dedot/utils": "workspace:*"
     "@polkadot/util": ^12.6.2
-    "@polkadot/util-crypto": ^12.6.2
     "@types/lodash.clonedeep": ^4.5.9
     lodash.clonedeep: ^4.5.0
     subshape: ^0.14.0
@@ -433,6 +431,7 @@ __metadata:
   resolution: "@dedot/utils@workspace:packages/utils"
   dependencies:
     "@polkadot/util": ^12.6.2
+    "@polkadot/util-crypto": ^12.6.2
   languageName: unknown
   linkType: soft
 
@@ -3428,7 +3427,6 @@ __metadata:
     "@polkadot/rpc-provider": ^10.11.2
     "@polkadot/types": ^10.11.2
     "@polkadot/util": ^12.6.2
-    "@polkadot/util-crypto": ^12.6.2
     localforage: ^1.10.0
   languageName: unknown
   linkType: soft
