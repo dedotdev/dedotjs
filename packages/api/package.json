@@ -19,6 +19,10 @@
     "@dedot/specs": "workspace:*",
     "@dedot/utils": "workspace:*",
     "@polkadot/util": "^12.6.2",
+    "@polkadot/x-fetch": "^12.6.2",
+    "@polkadot/x-global": "^12.6.2",
+    "@polkadot/x-ws": "^12.6.2",
+    "eventemitter3": "^5.0.1",
     "localforage": "^1.10.0"
   },
   "scripts": {
@@ -32,8 +36,8 @@
   },
   "license": "Apache-2.0",
   "devDependencies": {
-    "@polkadot/rpc-provider": "^10.11.2",
     "@polkadot/keyring": "^12.6.2",
+    "@polkadot/rpc-provider": "^10.11.2",
     "@polkadot/types": "^10.11.2"
   }
 }
