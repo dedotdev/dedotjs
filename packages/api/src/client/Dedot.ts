@@ -1,4 +1,4 @@
-import { HttpProvider, WsProvider } from '@polkadot/rpc-provider';
+import { WsProvider } from '../rpc-provider';
 import { ProviderInterface } from '@polkadot/rpc-provider/types';
 import type { SubstrateApi } from '@dedot/chaintypes';
 import { $Metadata, BlockHash, CodecRegistry, Hash, Metadata, MetadataLatest, RuntimeVersion } from '@dedot/codecs';
@@ -321,12 +321,8 @@ export class Dedot<ChainApi extends GenericSubstrateApi = SubstrateApi> {
     if (endpoint) {
       if (endpoint.startsWith('ws://') || endpoint.startsWith('wss://')) {
         return new WsProvider(endpoint);
-      } else if (endpoint.startsWith('http://') || endpoint.startsWith('https://')) {
-        return new HttpProvider(endpoint);
       } else {
-        throw new Error(
-          'Invalid network endpoint, a valid endpoint should start with `wss://`, `ws://`, `https://` or `http://`',
-        );
+        throw new Error('Invalid network endpoint, a valid endpoint should start with `wss://`, `ws://`');
       }
     }
 
