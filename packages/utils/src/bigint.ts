@@ -1,3 +1,5 @@
+import { HexString } from './types';
+
 /**
  * Return the bigger bigint value
  */
@@ -36,4 +38,8 @@ export function nextPowerOfTwo(n: bigint) {
   while (n > p) p <<= 1n; // p *= 2n
 
   return p;
+}
+
+export function bnToHex(n: bigint): HexString {
+  return `0x${n.toString(16)}`;
 }
