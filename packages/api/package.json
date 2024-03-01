@@ -17,13 +17,13 @@
     "@dedot/codecs": "workspace:*",
     "@dedot/shape": "workspace:*",
     "@dedot/specs": "workspace:*",
+    "@dedot/storage": "workspace:*",
     "@dedot/utils": "workspace:*",
     "@polkadot/util": "^12.6.2",
     "@polkadot/x-fetch": "^12.6.2",
     "@polkadot/x-global": "^12.6.2",
     "@polkadot/x-ws": "^12.6.2",
-    "eventemitter3": "^5.0.1",
-    "localforage": "^1.10.0"
+    "eventemitter3": "^5.0.1"
   },
   "scripts": {
     "build": "tsc --project tsconfig.build.json && tsc --project tsconfig.build.cjs.json",
