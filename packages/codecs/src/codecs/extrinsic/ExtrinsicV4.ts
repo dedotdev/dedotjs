@@ -1,8 +1,8 @@
-import { CodecRegistry } from '../registry';
+import { CodecRegistry } from '../../registry';
 import { HexString } from '@dedot/utils';
 import { u8aToHex } from '@polkadot/util';
-import { Hash } from '@dedot/codecs/generic';
 import { blake2AsHex } from '@polkadot/util-crypto';
+import { Hash } from '../generic';
 
 export interface ExtrinsicSignatureV4<Address = any, Signature = any, Extra = any> {
   address: Address;
