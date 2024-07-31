@@ -7,7 +7,7 @@ dedot
 </h1>
 
 <p align="center">
-A delightful JavaScript/TypeScript client for <a href="https://polkadot.network/">Polkadot</a> & <a href="https://substrate.io/">Substrate</a>
+Delightful JavaScript/TypeScript client for <a href="https://polkadot.network/">Polkadot</a> & <a href="https://substrate.io/">Substrate</a>
 <p>
 
 <p align="center">
