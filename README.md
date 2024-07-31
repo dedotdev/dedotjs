@@ -112,7 +112,6 @@ const api = await LegacyClient.new(provider);
 ```
 
 ### Table of contents
-- [Status](#status)
 - [Chain Types & APIs](#chain-types--apis)
 - [Execute RPC Methods](#execute-rpc-methods)
 - [Query On-chain Storage](#query-on-chain-storage)
@@ -261,7 +260,7 @@ const unsub = await api.tx.balances
     .signAndSend(alice, async ({ status }) => {
       console.log('Transaction status', status.type);
       if (status.type === 'BestChainBlockIncluded') { // or status.type === 'Finalized'
-        console.log(`Transaction completed at block hash ${status.value}`);
+        console.log(`Transaction completed at block hash ${status.value.blockHash}`);
         await unsub();
       }
     });
@@ -278,7 +277,7 @@ const unsub = await api.tx.balances
     .signAndSend(account.address, { signer }, async ({ status }) => {
       console.log('Transaction status', status.type);
       if (status.type === 'BestChainBlockIncluded') { // or status.type === 'Finalized'
-        console.log(`Transaction completed at block hash ${status.value}`);
+        console.log(`Transaction completed at block hash ${status.value.blockHash}`);
         await unsub();
       }
     });
@@ -307,7 +306,7 @@ const unsub = api.tx.utility.batch([transferTx.call, remarkCall])
     .signAndSend(account.address, { signer }, async ({ status }) => {
       console.log('Transaction status', status.type);
       if (status.type === 'BestChainBlockIncluded') { // or status.type === 'Finalized'
-        console.log(`Transaction completed at block hash ${status.value}`);
+        console.log(`Transaction completed at block hash ${status.value.blockHash}`);
         await unsub();
       }
     });
@@ -385,9 +384,7 @@ Example to list new accounts created in each block:
 // ...
 const ss58Prefix = api.consts.system.ss58Prefix;
 await api.query.system.events(async (eventRecords) => {
-  const newAccountEvents = eventRecords
-    .map(({ event }) => api.events.system.NewAccount.as(event))
-    .filter((one) => one);
+  const newAccountEvents = api.events.system.NewAccount.filter(eventRecords);
 
   console.log(newAccountEvents.length, 'account(s) was created in block', await api.query.system.number());
 
