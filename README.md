@@ -1,8 +1,16 @@
-# dedot
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/f7620d04-79ef-44a8-a304-760d25728a9e" height="120">
+</p>
 
-A delightful JavaScript/TypeScript client for [Polkadot](https://polkadot.network/) & [Substrate](https://substrate.io/)
+<h1 align="center">
+dedot
+</h1>
 
-<p align="left">
+<p align="center">
+A delightful JavaScript/TypeScript client for <a href="https://polkadot.network/">Polkadot</a> & <a href="https://substrate.io/">Substrate</a>
+<p>
+
+<p align="center">
   <img src="https://img.shields.io/github/license/dedotdev/dedot?style=flat-square"/>
   <img src="https://img.shields.io/github/actions/workflow/status/dedotdev/dedot/run-tests.yml?label=unit%20tests&style=flat-square"/>
   <img src="https://img.shields.io/github/actions/workflow/status/dedotdev/dedot/zombienet-tests.yml?label=e2e%20tests&style=flat-square"/>
@@ -32,19 +40,19 @@ Try `dedot` now on [CodeSandbox Playground](https://codesandbox.io/p/devbox/tryd
 - Install `dedot` package
 ```shell
 # via yarn
-yarn add dedot@latest
+yarn add dedot
 
 # via npm
-npm i dedot@latest
+npm i dedot
 ```
 
 - Install `@dedot/chaintypes` package for chain types & APIs suggestion. Skip this step if you don't use TypeScript.
 ```shell
 # via yarn
-yarn add -D @dedot/chaintypes@latest
+yarn add -D @dedot/chaintypes
 
 # via npm
-npm i -D @dedot/chaintypes@latest
+npm i -D @dedot/chaintypes
 ```
 
 - Initialize the API client and start interacting with Polkadot network
@@ -123,10 +131,10 @@ Each Substrate-based blockchain has their own set of data types & APIs to intera
 Types & APIs for each Substrate-based blockchains are defined in package [`@dedot/chaintypes`](https://github.com/dedotdev/chaintypes):
 ```shell
 # via yarn
-yarn add -D @dedot/chaintypes@latest
+yarn add -D @dedot/chaintypes
 
 # via npm
-npm i -D @dedot/chaintypes@latest
+npm i -D @dedot/chaintypes
 ```
 
 Initialize a `DedotClient` instance using the `ChainApi` interface for a target chain to enable types & APIs suggestion/autocompletion for that particular chain:
